@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+  <li><a href="#/">Home</a></li>  
+  <li class="active">{{revit.name}}</li>
+</ol>
+<h1>{{revit.name}}</h1>
+<ul class="list-group">
+  <li class="list-group-item">Flag: <img ng-src="{{revit.flagURL}}" width="50"></li>
+  <li class="list-group-item">Population: {{revit.population | number }}</li>
+  <li class="list-group-item">Capital: {{revit.capital}}</li>
+  <li class="list-group-item">GDP: {{revit.gdp | currency }}</li>
+</ul>

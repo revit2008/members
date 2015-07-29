@@ -1,0 +1,77 @@
+ <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+         <div ng-include src="'sidebar.html'"></div>	
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+		<div ng-include src="'header.html'"></div>	
+ <div class="page {{pageShow}}">
+<div class="jumbotron {{inrevit.name}} {{inrevit.page}}" >
+      <div class="container"  >
+        <h2>{{inrevit.title}}</h2>      
+		<p ng-bind-html="renderHtml(inrevit.desc)"> </p>
+        
+      </div>
+    </div>
+	<div class="banner">
+  <div class="container ">
+  <div class="row">
+  <div class="col-md-6"> Want to keep this help Book in your local server ?    <strong>    <a href="codEazy.zip">Download it now</a> </strong></div>
+  <div class="col-md-6"> <div class="input-group">
+	  <span class="input-group-addon" >Search</span>
+	  <input type="text" class="form-control" placeholder="Search Keyword" ng-model="query">
+	</div></div>
+</div>
+  
+  </div>
+</div>
+<div class="container inlist">
+
+      <div class="row ">
+	
+        <div class="col-xs-12 col-sm-12">
+			
+          
+			  <div class="innerList" ng-repeat="(setKey, set) in revit | filter:query | orderBy:'name' | groupBy:'role'" >
+				
+				<div class="alert alert-info" >{{setKey}}</div>
+				 <accordion close-others="oneAtATime">
+				
+				<accordion-group is-open="status.open" ng-repeat="item in set | orderBy:'name'">
+					<accordion-heading>
+						{{item.name}}
+						
+						<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+					</accordion-heading>
+					 <div class="bs-example">
+						
+						<p><b>Description : </b></p>
+						<div ng-bind-html="renderHtml(item.desc)"> </div>
+						<p><b>Formal syntax : </b></p>
+						<pre class="code syntax" >{{item.code}}</pre></br>
+						<p><b>Link  <i class="fa fa-external-link"></i> : </b> <a href="{{item.link}}" > {{item.link}} </a></p>
+						<p><b>Browser Support : </b> 
+						<span ng-repeat="browser in item.brow" class="browsers"> 
+							<i class="{{browser.name }}"></i> <b>{{browser.ver }}</b>  &nbsp;&nbsp;&nbsp; 
+						</span>
+						</p>
+					  </div>
+					
+					<pre class="code language-html" >{{item.pop}}</pre>
+				</accordion-group>
+				</accordion>
+			  </div>
+        </div><!--/.col-xs-12.col-sm-9-->
+      </div><!--/row-->
+    </div>
+</div>
+<div class="under-con {{pageConstruction}}">
+<div ng-include src="'under-construction.html'"></div>	
+</div>
+<div ng-include src="'footer.html'"></div>
+</div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+	

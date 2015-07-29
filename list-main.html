@@ -1,0 +1,53 @@
+ <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div ng-include src="'sidebar.html'"></div>	
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+		<div ng-include src="'header.html'"></div>	
+ <div class="page {{pageShow}}">
+<div class="jumbotron {{inrevit.name}} {{inrevit.page}}">
+      <div class="container"  >
+        <h2 ng-bind-html="renderHtml(inrevit.title)"></h2>      
+		<div ng-bind-html="renderHtml(inrevit.desc)"> </div>
+        
+      </div>
+    </div>
+	<div class="banner" ng-if="inrevit.headmenu == 'true'">
+  <div class="container ">
+  <div class="row">
+  <div class="col-md-6"> Want to keep this help Book in your local server ?    <strong>    <a href="codEazy.zip">Download it now</a> </strong></div>
+  <div class="col-md-6"></div>
+</div>
+  
+  </div>
+</div>
+<div class="content-home">
+<div class="container">
+
+	<div class="row" >
+		<div ng-repeat="revit in inrevit.submenu" >
+		 <div ng-if="$index % 2 == 0" class="clearfix"></div>
+		<div class="col-sm-6" >  
+				<h3 class="title"> 
+				<a  href="#/{{revit.url}}"><i class="{{revit.ico}}"></i> &nbsp; {{revit.name}}</a>
+				</h3>
+			   {{revit.desc}}</h2></br></br>
+				 <a  class="btn btn-default btn-xs" href="#/{{revit.url}}">OPEN</a>
+		 
+        </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+</div>
+<div class="under-con {{pageConstruction}}">
+<div ng-include src="'under-construction.html'"></div>	
+</div>
+<div ng-include src="'footer.html'"></div>	
+</div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
