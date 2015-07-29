@@ -23,13 +23,6 @@ revitApp.factory('revitfact', function($http){
         url: 'members.json',
         cache: true
       }).success(callback);
-    },
-    list: function(id, sid, callback){
-      $http({
-        method: 'GET',
-       url: 'members.json',
-        cache: true
-      }).success(callback);
     }
   };
 });
