@@ -1,0 +1,127 @@
+<div id="wrapper" class="toggled">
+        
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          
+<nav class="navbar navbar-inverse navbar-fixed-top docs-nav  ng-scope" >
+      <div class="container">
+        <div class="text-center">        
+		  <p href="./#" class="navbar-brand" alt="CodEasy">
+		 <a class="logo-title" ng-click="itemClicked(1)"> REV</a> <a class="logo-title" ng-click="itemClicked(2)">IT</a>
+        <!--<img src="content/logo.png">-->
+      </p>	
+<p class="text-center"> Dept. of Information Technology</p>
+<p class="text-center"> Batch 2004-08</p>	  
+ <p class="text-center"> JJ College of Engineering and Technology, Trichy</p>	        
+        </div>
+        
+      </div>
+    </nav>	
+<div class="page {{pageShow}}">
+
+<div class="content-home">
+<div class="container">
+
+	<div class="row list{{selectedIndex}}">
+		<div ng-repeat="revit in revitfact" ng-if="selectedIndex == 1">
+		 <div ng-if="$index % 4 == 0" class="clearfix"></div>
+			<div class="col-xs-12 col-sm-6 col-md-3" ng-class="{odd: $index % 2 == 0}">  
+				<div class="glist">
+					<h3 class="title text-center"> <span class="bor">{{$index+1}} </span>  &nbsp; &nbsp;{{revit.name}}</h3>
+					<div class="">
+						<div class="row" >
+							<div class="col-sm-12 text-center" >  
+								
+								<img class="ixon" src="icons/{{revit.id}}.jpg"  ng-if="revit.pic == 'true'"/>
+								<i class="ixon"   ng-if="revit.pic == 'false'"></i>
+							</div>
+							<div class="col-sm-12 text-center gcontent" >  
+								<p ng-if="revit.spr != ''"> <i class="fa fa-male" ng-if="revit.gender == 'm'"></i><i class="fa fa-female" ng-if="revit.gender == 'f'"></i> {{revit.spr}} </p>
+								<p ng-if="revit.birth != ''"> <i class="fa fa-birthday-cake"></i> {{revit.birth}} </p>
+								<p ng-if="revit.mail != ''">  <i class="fa fa-envelope-o"></i> {{revit.mail}} </p>
+								<p ng-if="revit.location != ''"> <i class="fa fa-map-marker"></i> {{revit.location}} </p>
+								<p ng-if="revit.native != ''">  <i class="fa fa-home"></i> {{revit.native}} </p>
+								<p ng-if="revit.nick != ''"> <i class="fa fa-tags"></i> {{revit.nick}} </p>
+								<p ng-if="revit.work != ''">  <i class="fa fa-briefcase"></i> {{revit.work}} </p>
+								<p ng-if="revit.phone != ''"> <i class="fa fa-phone"></i> {{revit.phone}} </p>
+								<div ng-bind-html="renderHtml(revit.desc)"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div  ng-if="selectedIndex == 2" class="table1">
+			<table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+				  <th>SPR #</th>
+                  <th>Img </th>
+                  <th> Name</th>
+                  <th>Birth</th>
+				  <th>Contacts</th>
+				  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="revit in revitfact">
+                  <td>{{$index+1}}</td>
+				  <td><a href="#/{{revit.spr}}"> {{revit.spr}}</a></td>
+                  <td>
+					<img class="ixon" src="icons/{{revit.id}}.jpg" ng-if="revit.pic == 'true'"/> 
+					<i class="ixon"   ng-if="revit.pic == 'false'"></i>
+				  </td>
+                  <td>
+				   <h3> <i class="fa fa-male" ng-if="revit.gender == 'm'"></i><i class="fa fa-female" ng-if="revit.gender == 'f'"></i> <strong> {{revit.name}}</strong></h3>
+				  <p ng-if="revit.nick != ''"> <i class="fa fa-tags"></i> {{revit.nick}} </p>
+				  </td>
+                  <td>{{revit.birth}} </td>
+				  <td>
+					<p ng-if="revit.phone != ''"> <i class="fa fa-phone"></i> {{revit.phone}} </p>
+					<p ng-if="revit.mail != ''">  <i class="fa fa-envelope-o"></i> <a href="mailto:{{revit.mail}}"> {{revit.mail}}</a> </p>
+				  </td>
+				  <td>
+				  <p ng-if="revit.work != ''">  <i class="fa fa-briefcase"></i> {{revit.work}} </p>
+					<p ng-if="revit.location != ''"> <i class="fa fa-map-marker"></i> {{revit.location}} </p>
+					<p ng-if="revit.native != ''">  <i class="fa fa-home"></i> {{revit.native}} </p>
+				  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+		</div>
+    </div>
+</div>
+</div>
+
+<footer >
+		<div class="container"> <br>  
+			
+			<div class="row">
+			
+			<div class="col-sm-12 text-center footfa" style="">
+			 <b>Icons : </b> <i class="fa fa-male" ></i> SPR No. , <i class="fa fa-birthday-cake"></i> D.O.B , <i class="fa fa-envelope-o"></i> email , <i class="fa fa-map-marker"></i> Staying in.. , 
+			<i class="fa fa-home"></i> Home Town , <i class="fa fa-tags"></i> other names , <i class="fa fa-briefcase"></i> working in.. ,  <i class="fa fa-phone"></i>  mobile No.
+			
+			</div>
+			</div><hr>
+			<div class="row">
+			<div class="col-sm-3">&nbsp;© 2015, Revit 2008 - JJCET 
+			</div>
+			<div class="col-sm-9 text-right">Version 2.0 </div>
+			</div>
+		    <p>
+				
+				
+			
+        </p></div><!-- /.container -->
+ </footer>	  
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+
+
